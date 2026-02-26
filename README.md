@@ -3,7 +3,7 @@
 Portfolio personnel développé en **React + Vite + Tailwind CSS**.
 
 ## 🔗 Lien
-https://portfolio-lala7nante.vercel.app
+(https://portfolio-388h-mj3xef0dm-lala7nantes-projects.vercel.app/)
 
 ## 🚀 Lancer en local
 ```bash
