@@ -3,10 +3,10 @@ import { useEffect, useState } from 'react'
 const USERNAME = 'Lala7nante'
 
 export default function GitHub() {
-  const [repos, setRepos] = useState([])
-  const [user, setUser]   = useState(null)
+  const [repos, setRepos]     = useState([])
+  const [user, setUser]       = useState(null)
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(false)
+  const [error, setError]     = useState(false)
 
   useEffect(() => {
     Promise.all([
@@ -40,29 +40,38 @@ export default function GitHub() {
 
         {!loading && !error && (
           <>
-            {/* User card */}
+            {/* User card — responsive */}
             {user && (
-              <div className="flex items-center gap-5 mb-8 bg-[#0d1117] border border-slate-800 rounded-xl p-5">
-                <img src={user.avatar_url} alt="avatar"
-                  className="w-14 h-14 rounded-full border-2 border-[#5bafd6]/40"/>
-                <div className="flex-1">
-                  <div className="font-syne font-bold text-white">{user.name || USERNAME}</div>
-                  <div className="font-mono-dm text-xs text-slate-500">@{user.login}</div>
-                </div>
-                <div className="flex gap-6 text-center">
-                  <div>
-                    <div className="font-syne font-bold text-[#5bafd6]">{user.public_repos}</div>
-                    <div className="font-mono-dm text-xs text-slate-600">repos</div>
-                  </div>
-                  <div>
-                    <div className="font-syne font-bold text-[#5bafd6]">{user.followers}</div>
-                    <div className="font-mono-dm text-xs text-slate-600">followers</div>
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-8 bg-[#0d1117] border border-slate-800 rounded-xl p-5">
+                
+                {/* Avatar + nom */}
+                <div className="flex items-center gap-4 flex-1 min-w-0">
+                  <img src={user.avatar_url} alt="avatar"
+                    className="w-14 h-14 rounded-full border-2 border-[#5bafd6]/40 shrink-0"/>
+                  <div className="min-w-0">
+                    <div className="font-syne font-bold text-white truncate">{user.name || USERNAME}</div>
+                    <div className="font-mono-dm text-xs text-slate-500">@{user.login}</div>
                   </div>
                 </div>
-                <a href={user.html_url} target="_blank" rel="noreferrer"
-                  className="font-mono-dm text-xs px-4 py-2 border border-[#5bafd6]/40 text-[#5bafd6] rounded-lg hover:bg-[#5bafd6]/10 transition-all">
-                  Voir profil ↗
-                </a>
+
+                {/* Stats + bouton */}
+                <div className="flex items-center justify-between sm:justify-end gap-6">
+                  <div className="flex gap-6 text-center">
+                    <div>
+                      <div className="font-syne font-bold text-[#5bafd6]">{user.public_repos}</div>
+                      <div className="font-mono-dm text-xs text-slate-600">repos</div>
+                    </div>
+                    <div>
+                      <div className="font-syne font-bold text-[#5bafd6]">{user.followers}</div>
+                      <div className="font-mono-dm text-xs text-slate-600">followers</div>
+                    </div>
+                  </div>
+                  <a href={user.html_url} target="_blank" rel="noreferrer"
+                    className="shrink-0 font-mono-dm text-xs px-4 py-2 border border-[#5bafd6]/40 text-[#5bafd6] rounded-lg hover:bg-[#5bafd6]/10 transition-all whitespace-nowrap">
+                    Voir profil ↗
+                  </a>
+                </div>
+
               </div>
             )}
 
