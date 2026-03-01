@@ -1,8 +1,8 @@
 const timeline = [
-  { year: '2024 – 2026', title: 'Licence Informatique L1 → L3', sub: 'ÉMIT Fianarantsoa · Parcours DA2I', current: true },
-  { year: '2023',        title: 'Baccalauréat (BACC)',           sub: 'Madagascar' },
-  { year: '2018',        title: 'BEPC',                          sub: 'Madagascar' },
-  { year: '2014',        title: 'CEPE',                          sub: 'Madagascar' },
+  { year: '2024 – 2026', title: 'Licence Informatique L1 → L3', sub: 'ÉMIT Fianarantsoa · Parcours: Développement d Application Internet/Intranet DA2I', current: true },
+  { year: '2023',        title: 'Baccalauréat (BACC)',           sub: 'Institution Marthe Hervée Antsirabe, Madagascar' },
+  { year: '2018',        title: 'BEPC',                          sub: 'Les Poussins Antsirabe, Madagascar' },
+  { year: '2014',        title: 'CEPE',                          sub: 'Les Poussins Antsirabe, Madagascar' },
 ]
 
 export default function Education() {

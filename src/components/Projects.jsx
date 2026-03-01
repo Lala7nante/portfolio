@@ -10,7 +10,7 @@ const comingSoon = [
     statusColor: 'text-green-400 border-green-400/30 bg-green-400/10',
     dot: 'bg-green-400',
     demo: '#',
-    code: '#',
+    code: 'https://github.com/Lala7nante/portfolio',
     available: true,
   },
   {
@@ -21,8 +21,8 @@ const comingSoon = [
     status: 'En ligne',
     statusColor: 'text-green-400 border-green-400/30 bg-green-400/10',
     dot: 'bg-green-400',
-    demo: '#',
-    code: 'https://github.com/Lala7nante/ecomshop',
+    demo: 'https://github.com/Lala7nante/ecommerce-app',
+    code: 'https://github.com/Lala7nante/ecommerce-app',
     available: true,
   },
   {
