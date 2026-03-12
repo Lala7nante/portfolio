@@ -37,7 +37,7 @@ export default function Hero() {
         {/* Badge */}
         <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 border border-[#5bafd6]/30 rounded-full bg-[#5bafd6]/5">
           <span className="w-2 h-2 rounded-full bg-[#5bafd6] animate-pulse"/>
-          <span className="font-mono-dm text-xs text-[#5bafd6] tracking-widest uppercase">Disponible pour stage / projet</span>
+          <span className="font-mono-dm text-xs text-[#5bafd6] tracking-widest uppercase">Disponible pour stage / projet / freelance</span>
         </div>
 
         {/* Name */}
