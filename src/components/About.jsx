@@ -23,13 +23,7 @@ export default function About() {
               Né le <span className="text-white">17 Avril 2004</span> à <span className="text-white">Vohimarina</span>, Madagascar.
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-3">
-              {['nantelala08@gmail.com','038 781 5005','033 302 3609'].map(item => (
-                <span key={item} className="font-mono-dm text-xs px-3 py-1.5 border border-slate-700 text-slate-400 rounded-md">
-                  {item}
-                </span>
-              ))}
-            </div>
+            
           </div>
 
           {/* Stats */}
