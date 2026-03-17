@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 * { scroll-behavior: smooth; }
 
 body {
@@ -13,7 +14,7 @@ body {
 ::-webkit-scrollbar-track { background: #080b12; }
 ::-webkit-scrollbar-thumb { background: #6acffd; border-radius: 3px; }
 
-.font-syne { font-family: 'Syne', sans-serif; }
+.font-syne    { font-family: 'Syne', sans-serif; }
 .font-mono-dm { font-family: 'DM Mono', monospace; }
 
 @keyframes fadeUp {
@@ -29,6 +30,12 @@ body {
   50%       { opacity: 0; }
 }
 
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
 .animate-fadeUp { animation: fadeUp 0.7s ease both; }
 .animate-fadeIn { animation: fadeIn 0.7s ease both; }
 .cursor-blink   { animation: blink 1s infinite; }
@@ -38,6 +45,7 @@ body {
 .delay-300 { animation-delay: 0.3s; }
 .delay-400 { animation-delay: 0.4s; }
 .delay-500 { animation-delay: 0.5s; }
+
 html, body {
   overflow-x: hidden;
   max-width: 100%;
