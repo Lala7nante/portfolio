@@ -44,7 +44,7 @@ export default function Navbar() {
             </li>
           ))}
           <li>
-            <a href="/cv.pdf" target="_blank"
+            <a href="/public/Mon_CV.pdf" target="_blank"
               className="ml-2 px-4 py-2 border border-[#5bafd6] text-[#5bafd6] font-mono-dm text-xs rounded-md hover:bg-[#5bafd6]/10 transition-all uppercase tracking-widest">
               CV PDF
             </a>

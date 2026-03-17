@@ -63,7 +63,7 @@ export default function Hero() {
             className="px-6 py-3 border border-[#5bafd6]/40 text-[#5bafd6] font-syne font-bold text-sm rounded-lg hover:border-[#5bafd6] hover:bg-[#5bafd6]/5 transition-all">
             Me contacter
           </a>
-          <a href="/cv.pdf" target="_blank"
+          <a href="/public/Mon_CV.pdf" target="_blank"
             className="px-6 py-3 border border-slate-700 text-slate-400 font-syne font-bold text-sm rounded-lg hover:border-slate-500 hover:text-white transition-all">
             ↓ Télécharger CV
           </a>
