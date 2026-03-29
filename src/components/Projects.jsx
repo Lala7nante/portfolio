@@ -37,42 +37,6 @@ const comingSoon = [
   code: 'https://github.com/Lala7nante/as-magma-foot',
   available: true,
 },
-  {
-    icon: '🌤️',
-    title: 'App Météo',
-    desc: "Application météo avec géolocalisation, prévisions sur 7 jours et visualisation graphique des données climatiques.",
-    tags: ['JavaScript', 'API REST', 'CSS'],
-    status: 'Bientôt',
-    statusColor: 'text-[#5bafd6] border-[#5bafd6]/30 bg-[#5bafd6]/10',
-    dot: 'bg-[#5bafd6]',
-    demo: null,
-    code: null,
-    available: false,
-  },
-  {
-    icon: '💬',
-    title: 'Chat en Temps Réel',
-    desc: 'Application de messagerie instantanée avec salons de discussion, envoi de fichiers et indicateurs de présence.',
-    tags: ['React', 'Socket.io', 'Node.js'],
-    status: 'Bientôt',
-    statusColor: 'text-[#5bafd6] border-[#5bafd6]/30 bg-[#5bafd6]/10',
-    dot: 'bg-[#5bafd6]',
-    demo: null,
-    code: null,
-    available: false,
-  },
-  {
-    icon: '📊',
-    title: 'Dashboard Analytique',
-    desc: 'Tableau de bord interactif avec graphiques dynamiques, filtres avancés et export de données en PDF/Excel.',
-    tags: ['React', 'Recharts', 'Tailwind CSS'],
-    status: 'Bientôt',
-    statusColor: 'text-[#5bafd6] border-[#5bafd6]/30 bg-[#5bafd6]/10',
-    dot: 'bg-[#5bafd6]',
-    demo: null,
-    code: null,
-    available: false,
-  },
 ]
 
 export default function Projects() {
@@ -100,16 +64,7 @@ export default function Projects() {
 
         {/* ── Bannière construction ── */}
         <div className="animate-fadeUp delay-200 mb-10 rounded-xl border border-[#5bafd6]/20 bg-gradient-to-r from-[#5bafd6]/5 to-transparent px-6 py-5 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-          <div className="w-12 h-12 rounded-xl bg-[#5bafd6]/10 border border-[#5bafd6]/20 flex items-center justify-center text-2xl shrink-0">
-            🚧
-          </div>
-          <div className="flex-1">
-            <p className="text-white font-syne font-semibold mb-1">Section en construction</p>
-            <p className="text-slate-400 text-sm leading-relaxed">
-              Je travaille activement sur mes premiers projets. Voici un aperçu de ce qui arrive très bientôt.
-              Tous les codes sources seront disponibles sur mon GitHub.
-            </p>
-          </div>
+      
           <div className="flex items-center gap-2 text-xs font-mono-dm text-slate-500 shrink-0">
             <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
             Actif
