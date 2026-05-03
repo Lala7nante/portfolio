@@ -23,40 +23,41 @@ export default function Hero() {
   }, [displayed, typing, roleIdx])
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Background glow */}
+    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-black">
+
+      {/* Background glow uniquement */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#5bafd6]/5 rounded-full blur-3xl"/>
         <div className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] bg-[#3d8fb5]/5 rounded-full blur-3xl"/>
-        {/* Grid lines */}
-        <div className="absolute inset-0 opacity-[0.03]"
-          style={{backgroundImage:'linear-gradient(#5bafd6 1px,transparent 1px),linear-gradient(90deg,#5bafd6 1px,transparent 1px)',backgroundSize:'60px 60px'}}/>
       </div>
 
       <div className="relative z-10 text-center px-6 animate-fadeUp">
+
         {/* Badge */}
         <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 border border-[#5bafd6]/30 rounded-full bg-[#5bafd6]/5">
           <span className="w-2 h-2 rounded-full bg-[#5bafd6] animate-pulse"/>
-          <span className="font-mono-dm text-xs text-[#5bafd6] tracking-widest uppercase">Disponible pour stage / projet / freelance</span>
+          <span className="font-mono-dm text-xs text-[#5bafd6] tracking-widest uppercase">
+            Disponible pour stage / projet / freelance
+          </span>
         </div>
 
-        {/* Name */}
+        {/* Nom */}
         <h1 className="font-syne font-bold text-4xl md:text-6xl lg:text-7xl text-white mb-4 leading-tight">
           Lalà<br/>
           <span className="text-[#5bafd6]">Nanté</span>
         </h1>
 
-        {/* Typing role */}
+        {/* Typing */}
         <div className="font-mono-dm text-xl md:text-2xl text-slate-300 mb-8 h-8 flex items-center justify-center gap-1">
           <span className="text-[#5bafd6]">&gt;</span>
           <span>{displayed}</span>
           <span className="cursor-blink text-[#5bafd6]">|</span>
         </div>
 
-        {/* CTA buttons */}
+        {/* Boutons */}
         <div className="flex flex-wrap gap-4 justify-center">
           <a href="#projects"
-            className="px-6 py-3 bg-[#5bafd6] text-[#080b12] font-syne font-bold text-sm rounded-lg hover:bg-[#3d8fb5] transition-all hover:scale-105">
+            className="px-6 py-3 bg-[#5bafd6] text-black font-syne font-bold text-sm rounded-lg hover:bg-[#3d8fb5] transition-all hover:scale-105">
             Voir mes projets
           </a>
           <a href="#contact"
@@ -69,7 +70,7 @@ export default function Hero() {
           </a>
         </div>
 
-        {/* Scroll indicator */}
+        {/* Scroll */}
         <div className="mt-16 flex flex-col items-center gap-2 text-slate-600">
           <span className="font-mono-dm text-xs tracking-widest">SCROLL</span>
           <div className="w-px h-12 bg-gradient-to-b from-slate-600 to-transparent"/>

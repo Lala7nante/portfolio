@@ -2,40 +2,59 @@ export default function About() {
   return (
     <section id="about" className="py-24 px-6">
       <div className="max-w-5xl mx-auto">
+
         <div className="flex items-center gap-4 mb-12">
           <span className="font-mono-dm text-[#5bafd6] text-sm">01.</span>
           <h2 className="font-syne font-bold text-3xl text-white">À propos</h2>
-          <div className="flex-1 h-px bg-slate-800"/>
+          <div className="flex-1 h-px bg-[#5bafd6]/30"/>
         </div>
+
         <div className="grid md:grid-cols-2 gap-12 items-start">
 
           {/* Card Photo + Stats */}
-          <div className="bg-[#0d1117] border border-slate-800 rounded-2xl p-8 flex flex-col items-center gap-6 hover:border-[#5bafd6]/30 transition-colors">
-            {/* Cercle photo */}
-            <div className="relative w-56 h-56">
-              {/* Border mihodina */}
-              <div className="absolute inset-0 rounded-full shadow-[0_0_20px_#5bafd6,0_0_40px_#5bafd6aa]"
-                style={{
-                  background: 'conic-gradient(from 0deg, #5bafd6, transparent 60%, #5bafd6)',
-                  borderRadius: '50%',
-                  animation: 'spin 3s linear infinite',
-                  padding: '2px',
-                }}
-              />
-              {/* Cache intérieur */}
-              <div className="absolute inset-[3px] rounded-full bg-[#0d1117]"/>
-              {/* Photo */}
+          <div className="rounded-2xl p-8 flex flex-col items-center gap-6 transition-all"
+            style={{
+              background: 'transparent',
+              border: '1px solid rgba(91,175,214,0.25)',
+            }}
+            onMouseEnter={e => e.currentTarget.style.border = '1px solid rgba(91,175,214,0.55)'}
+            onMouseLeave={e => e.currentTarget.style.border = '1px solid rgba(91,175,214,0.25)'}>
+
+            {/* Photo rectangulaire dans card */}
+            <div className="w-full overflow-hidden rounded-xl relative"
+              style={{
+                border: '1px solid rgba(91,175,214,0.3)',
+                boxShadow: '0 0 20px rgba(91,175,214,0.1)',
+                aspectRatio: '4/3',
+              }}>
               <img
                 src="/lala.png"
                 alt="Lalà Nanté"
-                className="absolute inset-[3px] w-[calc(100%-6px)] h-[calc(100%-6px)] rounded-full object-cover object-top"
+                className="w-full h-full object-cover object-top"
               />
+              {/* Overlay bas */}
+              <div className="absolute bottom-0 left-0 right-0 h-20"
+                style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.7), transparent)' }}/>
+              {/* Badge sur photo */}
+              <div className="absolute bottom-3 left-0 right-0 flex justify-center">
+                <span className="px-3 py-1 rounded-full text-xs font-mono-dm"
+                  style={{
+                    background: 'rgba(91,175,214,0.15)',
+                    border: '1px solid rgba(91,175,214,0.4)',
+                    color: '#5bafd6',
+                    backdropFilter: 'blur(8px)',
+                    letterSpacing: '0.12em',
+                  }}>
+                  DÉVELOPPEUR WEB
+                </span>
+              </div>
             </div>
+
             {/* Nom */}
             <div className="text-center">
               <h3 className="font-syne font-bold text-white text-xl">Lalà Nanté</h3>
-              <p className="font-mono-dm text-[#5bafd6] text-xs tracking-widest uppercase mt-1">Développeur Full Stack</p>
             </div>
+
             {/* Stats */}
             <div className="grid grid-cols-2 gap-3 w-full">
               {[
@@ -44,19 +63,32 @@ export default function About() {
                 { num: '10+', label: 'Technologies'    },
                 { num: '3',   label: 'Langues parlées' },
               ].map(s => (
-                <div key={s.label} className="bg-[#080b12] border border-slate-800 rounded-xl p-4 hover:border-[#5bafd6]/30 transition-colors text-center">
-                  <div className="font-syne font-bold text-2xl text-[#5bafd6] mb-1">{s.num}</div>
-                  <div className="font-mono-dm text-xs text-slate-500 uppercase tracking-wider">{s.label}</div>
+                <div key={s.label} className="rounded-xl p-4 text-center transition-all hover:scale-105"
+                  style={{
+                    background: 'transparent',
+                    border: '1px solid rgba(91,175,214,0.2)',
+                  }}
+                  onMouseEnter={e => e.currentTarget.style.border = '1px solid rgba(91,175,214,0.5)'}
+                  onMouseLeave={e => e.currentTarget.style.border = '1px solid rgba(91,175,214,0.2)'}>
+                  <div className="font-syne font-bold text-2xl mb-1"
+                    style={{ color: '#5bafd6', textShadow: '0 0 12px rgba(91,175,214,0.5)' }}>
+                    {s.num}
+                  </div>
+                  <div className="font-mono-dm text-xs text-slate-500 uppercase tracking-wider">
+                    {s.label}
+                  </div>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Texte */}
+          {/* Texte bio */}
           <div className="flex flex-col justify-center gap-6">
             <p className="text-slate-400 leading-relaxed">
               Je suis <span className="text-white font-medium">Onjalalaina Edmond RANDRIANANTENAINA</span>,
-              étudiant en <span className="text-[#5bafd6]">Trosième année de Licence en Informatique – Parcours Développement d'Appication Internet & Intranet (DA2I)</span> à l'ÉMIT Fianarantsoa (Ecole Management pour l'Innovation Technologique), Madagascar.
+              étudiant en <span className="text-[#5bafd6]">Troisième année de Licence en Informatique – Parcours
+              Développement d'Application Internet & Intranet (DA2I)</span> à l'ÉMIT Fianarantsoa
+              (École Management pour l'Innovation Technologique), Madagascar.
             </p>
             <p className="text-slate-400 leading-relaxed">
               <span className="text-white font-medium">Passionné par le Développement Web</span>, je conçois des applications
@@ -64,10 +96,24 @@ export default function About() {
               à progresser et relever de nouveaux défis techniques.
             </p>
             <p className="text-slate-400 leading-relaxed">
-              Né le <span className="text-white">17 Avril 2004</span> à <span className="text-white">Vohimarina</span>, Madagascar.
+              Né le <span className="text-white">17 Avril 2004</span> à{' '}
+              <span className="text-white">Vohimarina</span>, FANDRIANA.
             </p>
-          </div>
 
+            {/* Tech badges */}
+            <div className="flex flex-wrap gap-2 mt-2">
+              {['React', 'Node.js', 'Laravel', 'MySQL', 'Tailwind CSS', 'Git'].map(tech => (
+                <span key={tech} className="px-3 py-1 rounded-lg text-xs font-mono-dm"
+                  style={{
+                    background: 'transparent',
+                    border: '1px solid rgba(91,175,214,0.25)',
+                    color: '#5bafd6',
+                  }}>
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
