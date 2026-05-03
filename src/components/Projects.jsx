@@ -49,24 +49,10 @@ export default function Projects() {
 
       <div className="max-w-6xl mx-auto relative">
 
-        <div className="flex items-center gap-4 mb-4 animate-fadeUp">
+        <div className="flex items-center gap-4 mb-10 animate-fadeUp">
           <span className="font-mono-dm text-[#5bafd6] text-sm">04.</span>
           <h2 className="font-syne font-bold text-3xl text-white">Projets</h2>
           <div className="flex-1 h-px bg-[#5bafd6]/30"/>
-        </div>
-
-        <p className="text-slate-500 text-sm font-mono-dm mb-10 animate-fadeUp delay-100">
-          // Projets en cours de réalisation — mise à jour régulière
-        </p>
-
-        {/* Bannière */}
-        <div className="animate-fadeUp delay-200 mb-10 rounded-xl px-6 py-5 flex items-center gap-3"
-          style={{
-            background: 'transparent',
-            border: '1px solid rgba(91,175,214,0.2)',
-          }}>
-          <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse"/>
-          <span className="text-xs font-mono-dm text-slate-500">Actif</span>
         </div>
 
         {/* Grille */}
@@ -84,8 +70,8 @@ export default function Projects() {
                   : '1px solid rgba(91,175,214,0.2)',
                 boxShadow: hovered === i ? '0 8px 30px rgba(91,175,214,0.08)' : 'none',
                 transform: hovered === i ? 'translateY(-4px)' : 'translateY(0)',
+                animationDelay: `${0.1 * (i + 3)}s`,
               }}
-              style2={{ animationDelay: `${0.1 * (i + 3)}s` }}
             >
               <div className="flex justify-between items-start mb-4">
                 <div className="w-11 h-11 rounded-xl flex items-center justify-center text-xl"
@@ -121,30 +107,25 @@ export default function Projects() {
               </div>
 
               <div className="flex gap-3 pt-4" style={{ borderTop: '1px solid rgba(91,175,214,0.1)' }}>
-                {p.available ? (
+                <a href={p.code} target="_blank" rel="noreferrer"
+                  className="flex items-center gap-1.5 text-xs font-mono-dm text-slate-400 hover:text-white transition-colors">
+                  <span>⌨️</span> Code source
+                </a>
+                {p.demo && (
                   <>
-                    <a href={p.code} className="flex items-center gap-1.5 text-xs font-mono-dm text-slate-400 hover:text-white transition-colors">
-                      <span>⌨️</span> Code source
-                    </a>
                     <span className="text-slate-700">·</span>
-                    <a href={p.demo} className="flex items-center gap-1.5 text-xs font-mono-dm text-slate-400 hover:text-[#5bafd6] transition-colors">
+                    <a href={p.demo} target="_blank" rel="noreferrer"
+                      className="flex items-center gap-1.5 text-xs font-mono-dm text-slate-400 hover:text-[#5bafd6] transition-colors">
                       <span>↗</span> Voir la démo
                     </a>
                   </>
-                ) : (
-                  <span className="flex items-center gap-1.5 text-xs font-mono-dm text-slate-700">
-                    <span>🔒</span> Disponible bientôt
-                  </span>
                 )}
               </div>
             </div>
           ))}
         </div>
 
-        <div className="mt-14 flex flex-col sm:flex-row items-center justify-between gap-6 animate-fadeUp delay-500">
-          <p className="text-slate-600 text-sm font-mono-dm">
-            // D'autres projets arrivent — restez connectés
-          </p>
+        <div className="mt-14 flex justify-end animate-fadeUp delay-500">
           <a href="https://github.com/Lala7nante" target="_blank" rel="noopener noreferrer"
             className="flex items-center gap-2 px-5 py-2.5 rounded-lg font-mono-dm text-sm font-bold transition-all hover:scale-105"
             style={{
@@ -158,6 +139,7 @@ export default function Projects() {
             Suivre mon GitHub
           </a>
         </div>
+
       </div>
     </section>
   )
