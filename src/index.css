@@ -5,14 +5,14 @@
 * { scroll-behavior: smooth; }
 
 body {
-  background-color: #080b12;
+  background-color: #000000;
   color: #e2e8f0;
   font-family: 'DM Sans', sans-serif;
 }
 
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #080b12; }
-::-webkit-scrollbar-thumb { background: #6acffd; border-radius: 3px; }
+::-webkit-scrollbar-track { background: #000000; }
+::-webkit-scrollbar-thumb { background: #5bafd6; border-radius: 3px; }
 
 .font-syne    { font-family: 'Syne', sans-serif; }
 .font-mono-dm { font-family: 'DM Mono', monospace; }
@@ -21,15 +21,16 @@ body {
   from { opacity: 0; transform: translateY(30px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+
 @keyframes fadeIn {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
+
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50%       { opacity: 0; }
 }
-
 
 @keyframes spin {
   from { transform: rotate(0deg); }
