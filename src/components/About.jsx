@@ -1,176 +1,252 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 export default function About() {
-  return (
-    <section id="about" className="py-24 px-6">
-      <div className="max-w-5xl mx-auto">
+  const sectionRef = useRef(null)
+  const [visible, setVisible] = useState(false)
 
-        {/* Title */}
-        <div className="flex items-center gap-4 mb-12">
-          <span className="font-mono-dm text-[#5bafd6] text-sm">01.</span>
-          <h2 className="font-syne font-bold text-3xl text-white">À propos</h2>
-          <div className="flex-1 h-px bg-[#5bafd6]/30" />
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setVisible(true) },
+      { threshold: 0.15 }
+    )
+    if (sectionRef.current) observer.observe(sectionRef.current)
+    return () => observer.disconnect()
+  }, [])
+
+  const stats = [
+    { num: 'L3', label: 'Niveau actuel', icon: '🎓' },
+    { num: '2+', label: 'Ans de pratique', icon: '⏱' },
+    { num: '10+', label: 'Technologies', icon: '⚡' },
+    { num: '3', label: 'Langues parlées', icon: '🌍' },
+  ]
+
+  return (
+    <section
+      id="about"
+      ref={sectionRef}
+      className="relative py-32 px-6 overflow-hidden"
+    >
+      {/* Background decorative blobs */}
+      <div
+        className="absolute top-10 right-0 w-96 h-96 rounded-full pointer-events-none"
+        style={{
+          background: 'radial-gradient(circle, rgba(91,175,214,0.07) 0%, transparent 70%)',
+          filter: 'blur(40px)',
+        }}
+      />
+      <div
+        className="absolute bottom-0 left-10 w-64 h-64 rounded-full pointer-events-none"
+        style={{
+          background: 'radial-gradient(circle, rgba(91,175,214,0.05) 0%, transparent 70%)',
+          filter: 'blur(60px)',
+        }}
+      />
+
+      <div className="max-w-6xl mx-auto">
+
+        {/* Section label */}
+        <div
+          className="flex items-center gap-4 mb-20"
+          style={{
+            opacity: visible ? 1 : 0,
+            transform: visible ? 'translateY(0)' : 'translateY(20px)',
+            transition: 'all 0.7s cubic-bezier(0.22,1,0.36,1)',
+          }}
+        >
+          <span className="font-mono text-[#5bafd6] text-xs tracking-[0.25em] uppercase">01. À propos</span>
+          <div className="flex-1 h-px" style={{ background: 'linear-gradient(to right, rgba(91,175,214,0.4), transparent)' }} />
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-start">
+        {/* Main layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 
-          {/* Card */}
+          {/* ── LEFT: Photo column ── */}
           <div
-            className="rounded-2xl p-8 flex flex-col items-center gap-6 transition-all"
+            className="lg:col-span-4 relative"
             style={{
-              border: '1px solid rgba(91,175,214,0.25)',
+              opacity: visible ? 1 : 0,
+              transform: visible ? 'translateX(0)' : 'translateX(-40px)',
+              transition: 'all 0.8s cubic-bezier(0.22,1,0.36,1) 0.1s',
             }}
-            onMouseEnter={e =>
-              (e.currentTarget.style.border =
-                '1px solid rgba(91,175,214,0.55)')
-            }
-            onMouseLeave={e =>
-              (e.currentTarget.style.border =
-                '1px solid rgba(91,175,214,0.25)')
-            }
           >
-
-            {/* Image FIXED */}
+            {/* Floating badge */}
             <div
-              className="w-full overflow-hidden rounded-xl relative flex items-center justify-center bg-black"
+              className="absolute -top-4 -left-4 z-10 px-3 py-1.5 rounded-lg text-xs font-mono tracking-widest uppercase"
               style={{
-                border: '1px solid rgba(91,175,214,0.3)',
+                background: 'rgba(10,15,25,0.9)',
+                border: '1px solid rgba(91,175,214,0.5)',
+                color: '#5bafd6',
+                backdropFilter: 'blur(12px)',
                 boxShadow: '0 0 20px rgba(91,175,214,0.15)',
-                height: '350px',
+              }}
+            >
+              Développeur Web
+            </div>
+
+            {/* Photo frame */}
+            <div
+              className="relative rounded-2xl overflow-hidden"
+              style={{
+                border: '1px solid rgba(91,175,214,0.2)',
+                boxShadow: '0 20px 60px rgba(0,0,0,0.4), 0 0 40px rgba(91,175,214,0.08)',
               }}
             >
               <img
                 src="/lala.png"
                 alt="Lalà Nanté"
-                className="w-full h-full object-contain"
+                className="w-full object-cover"
+                style={{ height: '420px', objectPosition: 'top' }}
               />
 
-              {/* Overlay */}
               <div
-                className="absolute bottom-0 left-0 right-0 h-20"
+                className="absolute inset-0"
                 style={{
-                  background:
-                    'linear-gradient(to top, rgba(0,0,0,0.7), transparent)',
+                  background: 'linear-gradient(to top, rgba(5,10,20,0.85) 0%, rgba(5,10,20,0.1) 50%, transparent 100%)',
                 }}
               />
 
-              {/* Badge */}
-              <div className="absolute bottom-3 left-0 right-0 flex justify-center">
-                <span
-                  className="px-3 py-1 rounded-full text-xs font-mono-dm"
-                  style={{
-                    background: 'rgba(91,175,214,0.15)',
-                    border: '1px solid rgba(91,175,214,0.4)',
-                    color: '#5bafd6',
-                    backdropFilter: 'blur(8px)',
-                    letterSpacing: '0.12em',
-                  }}
+              <div className="absolute bottom-0 left-0 right-0 p-5">
+                <p className="font-mono text-[#5bafd6] text-xs tracking-widest uppercase mb-1">Portfolio</p>
+                <h3
+                  className="text-white text-2xl font-bold leading-tight"
+                  style={{ fontFamily: 'Georgia, serif', letterSpacing: '-0.01em' }}
                 >
-                  DÉVELOPPEUR WEB
-                </span>
+                  Lalà Nanté
+                </h3>
               </div>
             </div>
 
-            {/* Name */}
-            <div className="text-center">
-              <h3 className="font-syne font-bold text-white text-xl">
-                Lalà Nanté
-              </h3>
+            {/* Corner accent */}
+            <div
+              className="absolute -bottom-3 -right-3 w-16 h-16 pointer-events-none"
+              style={{
+                borderRight: '2px solid rgba(91,175,214,0.4)',
+                borderBottom: '2px solid rgba(91,175,214,0.4)',
+                borderRadius: '0 0 8px 0',
+              }}
+            />
+          </div>
+
+          {/* ── RIGHT: Content ── */}
+          <div
+            className="lg:col-span-8 flex flex-col gap-8"
+            style={{
+              opacity: visible ? 1 : 0,
+              transform: visible ? 'translateY(0)' : 'translateY(30px)',
+              transition: 'all 0.8s cubic-bezier(0.22,1,0.36,1) 0.25s',
+            }}
+          >
+            {/* Headline */}
+            <div>
+              <h2
+                className="text-4xl md:text-5xl font-bold text-white mb-3 leading-tight"
+                style={{ fontFamily: 'Georgia, serif', letterSpacing: '-0.02em' }}
+              >
+                Étudiant &amp; <br />
+                <span
+                  style={{
+                    color: 'transparent',
+                    WebkitTextStroke: '1.5px #00d4ff',
+                  }}
+                >
+                  Développeur passionné
+                </span>
+              </h2>
+              <div className="w-12 h-0.5" style={{ background: '#5bafd6' }} />
+            </div>
+
+            {/* Bio */}
+            <div className="space-y-5">
+              <p
+                className="text-slate-200 leading-relaxed"
+                style={{
+                  fontFamily: 'Inter, sans-serif',
+                  fontSize: '15.5px',
+                  lineHeight: '1.9',
+                  fontWeight: 400,
+                }}
+              >
+                Je suis{' '}
+                <span className="text-white font-semibold">
+                  Onjalalaina Edmond RANDRIANANTENAINA
+                </span>
+                , étudiant en{' '}
+                <span className="text-[#5bafd6]">
+                  troisième année de Licence en Informatique – parcours DA2I
+                </span>{' '}
+                à l'ÉMIT Fianarantsoa, Madagascar.
+              </p>
+              <p
+                className="text-slate-300 leading-relaxed"
+                style={{
+                  fontFamily: 'Inter, sans-serif',
+                  fontSize: '15.5px',
+                  lineHeight: '1.9',
+                  fontWeight: 400,
+                }}
+              >
+                Passionné par le développement web, je conçois des applications
+                performantes ainsi que des interfaces modernes et intuitives.
+                Curieux et déterminé, je cherche constamment à améliorer mes
+                compétences et à relever de nouveaux défis.
+              </p>
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-2 gap-3 w-full">
-              {[
-                { num: 'L3', label: 'Niveau actuel' },
-                { num: '2+', label: 'Ans de pratique' },
-                { num: '10+', label: 'Technologies' },
-                { num: '3', label: 'Langues parlées' },
-              ].map(s => (
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+              {stats.map((s, i) => (
                 <div
                   key={s.label}
-                  className="rounded-xl p-4 text-center transition-all hover:scale-105"
+                  className="relative rounded-xl p-4 text-center cursor-default"
                   style={{
-                    border: '1px solid rgba(91,175,214,0.2)',
+                    background: 'rgba(91,175,214,0.04)',
+                    border: '1px solid rgba(91,175,214,0.15)',
+                    transition: 'all 0.3s ease',
+                    opacity: visible ? 1 : 0,
+                    transform: visible ? 'translateY(0)' : 'translateY(15px)',
+                    transitionDelay: `${0.4 + i * 0.08}s`,
                   }}
-                  onMouseEnter={e =>
-                    (e.currentTarget.style.border =
-                      '1px solid rgba(91,175,214,0.5)')
-                  }
-                  onMouseLeave={e =>
-                    (e.currentTarget.style.border =
-                      '1px solid rgba(91,175,214,0.2)')
-                  }
+                  onMouseEnter={e => {
+                    e.currentTarget.style.background = 'rgba(91,175,214,0.1)'
+                    e.currentTarget.style.borderColor = 'rgba(91,175,214,0.45)'
+                    e.currentTarget.style.transform = 'translateY(-3px)'
+                    e.currentTarget.style.boxShadow = '0 8px 24px rgba(91,175,214,0.12)'
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.background = 'rgba(91,175,214,0.04)'
+                    e.currentTarget.style.borderColor = 'rgba(91,175,214,0.15)'
+                    e.currentTarget.style.transform = 'translateY(0)'
+                    e.currentTarget.style.boxShadow = 'none'
+                  }}
                 >
+                  <div className="text-lg mb-1">{s.icon}</div>
                   <div
-                    className="font-syne font-bold text-2xl mb-1"
+                    className="font-bold text-2xl mb-0.5"
                     style={{
+                      fontFamily: 'Georgia, serif',
                       color: '#5bafd6',
-                      textShadow: '0 0 12px rgba(91,175,214,0.5)',
+                      textShadow: '0 0 16px rgba(91,175,214,0.4)',
                     }}
                   >
                     {s.num}
                   </div>
-                  <div className="font-mono-dm text-xs text-slate-500 uppercase tracking-wider">
+                  <div className="text-slate-500 text-xs font-mono uppercase tracking-wider leading-tight">
                     {s.label}
                   </div>
                 </div>
               ))}
             </div>
-          </div>
 
-          {/* Texte */}
-          <div className="flex flex-col justify-center gap-6">
-            <p className="text-slate-400 leading-relaxed">
-              Je suis{' '}
-              <span className="text-white font-medium">
-                Onjalalaina Edmond RANDRIANANTENAINA
+            {/* Footer divider */}
+            <div className="flex items-center gap-4 pt-2">
+              <div className="h-px flex-1" style={{ background: 'rgba(91,175,214,0.15)' }} />
+              <span className="font-mono text-xs text-slate-600 tracking-widest uppercase">
+                ÉMIT · Fianarantsoa · Madagascar
               </span>
-              , étudiant en{' '}
-              <span className="text-[#5bafd6]">
-                Troisième année de Licence en Informatique – Parcours
-                Développement d'Application Internet & Intranet (DA2I)
-              </span>{' '}
-              à l'ÉMIT Fianarantsoa, Madagascar.
-            </p>
-
-            <p className="text-slate-400 leading-relaxed">
-              <span className="text-white font-medium">
-                Passionné par le Développement Web
-              </span>
-              , je conçois des applications full-stack performantes et des
-              interfaces modernes. Curieux et déterminé, je cherche constamment
-              à progresser.
-            </p>
-
-            <p className="text-slate-400 leading-relaxed">
-              Né le <span className="text-white">17 Avril 2004</span> à{' '}
-              <span className="text-white">Vohimarina</span>, FANDRIANA.
-            </p>
-
-            {/* Tech */}
-            <div className="flex flex-wrap gap-2 mt-2">
-              {[
-                'React',
-                'Node.js',
-                'Laravel',
-                'MySQL',
-                'Tailwind CSS',
-                'Git',
-              ].map(tech => (
-                <span
-                  key={tech}
-                  className="px-3 py-1 rounded-lg text-xs font-mono-dm"
-                  style={{
-                    border: '1px solid rgba(91,175,214,0.25)',
-                    color: '#5bafd6',
-                  }}
-                >
-                  {tech}
-                </span>
-              ))}
+              <div className="h-px flex-1" style={{ background: 'rgba(91,175,214,0.15)' }} />
             </div>
-          </div>
 
+          </div>
         </div>
       </div>
     </section>
