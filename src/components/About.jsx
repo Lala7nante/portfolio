@@ -26,7 +26,7 @@ export default function About() {
       ref={sectionRef}
       className="relative py-32 px-6 overflow-hidden"
     >
-      {/* Background decorative blobs */}
+      {/* Background blobs */}
       <div
         className="absolute top-10 right-0 w-96 h-96 rounded-full pointer-events-none"
         style={{
@@ -44,7 +44,7 @@ export default function About() {
 
       <div className="max-w-6xl mx-auto">
 
-        {/* Section label */}
+        {/* ── Title — même style que Formation.jsx ── */}
         <div
           className="flex items-center gap-4 mb-20"
           style={{
@@ -53,14 +53,23 @@ export default function About() {
             transition: 'all 0.7s cubic-bezier(0.22,1,0.36,1)',
           }}
         >
-          <span className="font-mono text-[#5bafd6] text-xs tracking-[0.25em] uppercase">01. À propos</span>
-          <div className="flex-1 h-px" style={{ background: 'linear-gradient(to right, rgba(91,175,214,0.4), transparent)' }} />
+          <span className="font-mono text-[#5bafd6] text-sm">01.</span>
+          <h2
+            className="font-bold text-3xl text-white"
+            style={{ fontFamily: 'inherit' }}
+          >
+            À propos
+          </h2>
+          <div
+            className="flex-1 h-px"
+            style={{ background: 'linear-gradient(to right, rgba(91,175,214,0.35), transparent)' }}
+          />
         </div>
 
         {/* Main layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 
-          {/* ── LEFT: Photo column ── */}
+          {/* ── LEFT: Photo ── */}
           <div
             className="lg:col-span-4 relative"
             style={{
@@ -69,7 +78,7 @@ export default function About() {
               transition: 'all 0.8s cubic-bezier(0.22,1,0.36,1) 0.1s',
             }}
           >
-            {/* Floating badge */}
+            {/* Badge */}
             <div
               className="absolute -top-4 -left-4 z-10 px-3 py-1.5 rounded-lg text-xs font-mono tracking-widest uppercase"
               style={{
@@ -87,8 +96,8 @@ export default function About() {
             <div
               className="relative rounded-2xl overflow-hidden"
               style={{
-                border: '1px solid rgba(91,175,214,0.2)',
-                boxShadow: '0 20px 60px rgba(0,0,0,0.4), 0 0 40px rgba(91,175,214,0.08)',
+                border: '1.5px solid rgba(0,255,255,0.45)',
+                boxShadow: '0 20px 60px rgba(0,0,0,0.4), 0 0 32px rgba(0,255,255,0.1)',
               }}
             >
               <img
@@ -97,20 +106,15 @@ export default function About() {
                 className="w-full object-cover"
                 style={{ height: '420px', objectPosition: 'top' }}
               />
-
               <div
                 className="absolute inset-0"
                 style={{
                   background: 'linear-gradient(to top, rgba(5,10,20,0.85) 0%, rgba(5,10,20,0.1) 50%, transparent 100%)',
                 }}
               />
-
               <div className="absolute bottom-0 left-0 right-0 p-5">
                 <p className="font-mono text-[#5bafd6] text-xs tracking-widest uppercase mb-1">Portfolio</p>
-                <h3
-                  className="text-white text-2xl font-bold leading-tight"
-                  style={{ fontFamily: 'Georgia, serif', letterSpacing: '-0.01em' }}
-                >
+                <h3 className="text-white text-2xl font-bold leading-tight">
                   Lalà Nanté
                 </h3>
               </div>
@@ -120,14 +124,14 @@ export default function About() {
             <div
               className="absolute -bottom-3 -right-3 w-16 h-16 pointer-events-none"
               style={{
-                borderRight: '2px solid rgba(91,175,214,0.4)',
-                borderBottom: '2px solid rgba(91,175,214,0.4)',
+                borderRight: '2px solid rgba(0,255,255,0.35)',
+                borderBottom: '2px solid rgba(0,255,255,0.35)',
                 borderRadius: '0 0 8px 0',
               }}
             />
           </div>
 
-          {/* ── RIGHT: Content ── */}
+          {/* ── RIGHT: Text + Stats ── */}
           <div
             className="lg:col-span-8 flex flex-col gap-8"
             style={{
@@ -143,28 +147,18 @@ export default function About() {
                 style={{ fontFamily: 'Georgia, serif', letterSpacing: '-0.02em' }}
               >
                 Étudiant &amp; <br />
-                <span
-                  style={{
-                    color: 'transparent',
-                    WebkitTextStroke: '1.5px #00d4ff',
-                  }}
-                >
+                <span style={{ color: '#5bafd6' }}>
                   Développeur passionné
                 </span>
               </h2>
               <div className="w-12 h-0.5" style={{ background: '#5bafd6' }} />
             </div>
 
-            {/* Bio */}
-            <div className="space-y-5">
+            {/* Bio — nouveau paragraphe */}
+            <div className="space-y-4">
               <p
                 className="text-slate-200 leading-relaxed"
-                style={{
-                  fontFamily: 'Inter, sans-serif',
-                  fontSize: '15.5px',
-                  lineHeight: '1.9',
-                  fontWeight: 400,
-                }}
+                style={{ fontFamily: 'sans-serif', fontSize: '16px', lineHeight: '1.8' }}
               >
                 Je suis{' '}
                 <span className="text-white font-semibold">
@@ -172,23 +166,22 @@ export default function About() {
                 </span>
                 , étudiant en{' '}
                 <span className="text-[#5bafd6]">
-                  troisième année de Licence en Informatique – parcours DA2I
+                  troisième année de Licence en Informatique
                 </span>{' '}
-                à l'ÉMIT Fianarantsoa, Madagascar.
+                à l'ÉMIT Fianarantsoa, parcours{' '}
+                <span className="text-[#5bafd6]">
+                  DA2I (Développement d'Applications Internet et Intranet)
+                </span>.
               </p>
               <p
                 className="text-slate-300 leading-relaxed"
-                style={{
-                  fontFamily: 'Inter, sans-serif',
-                  fontSize: '15.5px',
-                  lineHeight: '1.9',
-                  fontWeight: 400,
-                }}
+                style={{ fontFamily: 'sans-serif', fontSize: '16px', lineHeight: '1.8' }}
               >
                 Passionné par le développement web, je conçois des applications
-                performantes ainsi que des interfaces modernes et intuitives.
-                Curieux et déterminé, je cherche constamment à améliorer mes
-                compétences et à relever de nouveaux défis.
+                performantes et des interfaces modernes, en alliant technique,
+                créativité et expérience utilisateur. Curieux et déterminé,
+                je m'engage à évoluer constamment pour relever des défis et
+                créer des solutions innovantes.
               </p>
             </div>
 
@@ -223,7 +216,6 @@ export default function About() {
                   <div
                     className="font-bold text-2xl mb-0.5"
                     style={{
-                      fontFamily: 'Georgia, serif',
                       color: '#5bafd6',
                       textShadow: '0 0 16px rgba(91,175,214,0.4)',
                     }}
