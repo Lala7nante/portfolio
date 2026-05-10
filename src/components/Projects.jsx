@@ -17,7 +17,7 @@ const comingSoon = [
     icon: '🏆',
     title: 'Gestion Tournoi',
     desc: 'Application de gestion de tournoi de football permettant de gérer les équipes, les joueurs, les matchs, les phases de groupes et les phases finales. Projet développé avec Java et Spring Boot.',
-    tags: ['Java', 'Spring Boot', 'MySQL'],
+    tags: ['Java', 'Spring Boot', 'PostegreSql'],
     status: 'En ligne',
     statusColor: 'text-green-400 border-green-400/30 bg-green-400/10',
     dot: 'bg-green-400',

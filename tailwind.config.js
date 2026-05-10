@@ -6,7 +6,12 @@ export default {
   ],
   darkMode: 'class',
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        syne: ['Times New Roman', 'serif'],
+        'mono-dm': ['DM Mono', 'monospace'],
+      },
+    },
   },
   plugins: [],
 }
